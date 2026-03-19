@@ -1,0 +1,169 @@
+
+@import url('https://fonts.googleapis.com');
+
+:root {
+    --gold: #ffd700;
+    --white: #ffffff;
+    --glass: rgba(0, 0, 0, 0.6);
+    --border: rgba(255, 255, 255, 0.15);
+    --accent: #00f2ff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+body {
+    background: #000;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+}
+
+/* 1. Background hình ảnh Parallax đặc sắc */
+.parallax-bg {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+
+    /* 1. Đường dẫn tới ảnh (Thay link trong ngoặc bằng ảnh của bạn) */
+    background-image: url('../img/truonghochiendai.jpg');
+       z-index: -2;
+    filter: blur(5px); /* Làm mờ ảnh nền để nổi bật nội dung */
+    transform: scale(1.1);
+
+    /* 2. Ép ảnh phải che kín toàn bộ màn hình, không để khoảng trắng */
+    background-size: cover;
+
+    /* 3. Giữ ảnh luôn ở chính giữa, không bị lệch */
+    background-position: center;
+
+    /* 4. Cố định ảnh lại (khi bạn cuộn chuột, ảnh đứng yên tạo cảm giác xịn xò) */
+    background-attachment: fixed;
+
+    /* 5. Quan trọng: Đảm bảo nó phủ toàn màn hình */
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Đẩy nó xuống dưới cùng để không che mất chữ */
+
+}
+
+
+/* 2. Hero Section với Video */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(3rem, 10vw, 6rem);
+    text-transform: uppercase;
+    line-height: 0.9;
+    -webkit-text-stroke: 1px var(--gold);
+    color: transparent;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px rgba(255,215,0,0.3); }
+    to { text-shadow: 0 0 30px rgba(255,215,0,0.8); color: var(--gold); }
+}
+
+/* 3. Glass Container - Nội dung cực dài */
+.content-section {
+    max-width: 1200px;
+    margin: 100px auto;
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    padding: 80px 50px;
+    box-shadow: 0 50px 100px rgba(0,0,0,0.9);
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* 4. Thư viện ảnh đặc sắc (Masonry Grid) */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 50px 0;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: 0.5s;
+    border: 2px solid var(--border);
+    cursor: pointer;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05) rotate(2deg);
+    border-color: var(--gold);
+    filter: brightness(1.2);
+}
+
+/* 5. Cột mốc thời gian (Timeline) */
+.timeline {
+    border-left: 2px dashed var(--gold);
+    padding-left: 30px;
+    margin-left: 20px;
+}
+
+.timeline-item {
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -41px; top: 0;
+    width: 20px; height: 20px;
+    background: var(--gold);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--gold);
+}
+
+/* 6. Footer chuyên nghiệp */
+footer {
+    padding: 100px 20px;
+    background: rgba(0,0,0,0.95);
+    text-align: center;
+    border-top: 1px solid var(--border);
+}
+
+.contact-btn {
+    padding: 20px 60px;
+    background: var(--gold);
+    color: #000;
+    text-decoration: none;
+    font-weight: 900;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    transition: 0.3s;
+    display: inline-block;
+    margin-top: 30px;
+}
+
+.contact-btn:hover {
+    box-shadow: 0 0 30px var(--gold);
+    transform: translateY(-5px);
+    background: #fff;
+}
