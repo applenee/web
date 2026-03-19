@@ -24,7 +24,7 @@ body {
     top: 0; left: 0; width: 100%; height: 100%;
 
     /* 1. Đường dẫn tới ảnh (Thay link trong ngoặc bằng ảnh của bạn) */
-    background-image: url('../img/truonghochiendai.jpg');
+    background-image: url('truonghochiendai.jpg');
        z-index: -2;
     filter: blur(5px); /* Làm mờ ảnh nền để nổi bật nội dung */
     transform: scale(1.1);
